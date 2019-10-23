@@ -266,7 +266,7 @@ class InterfaceEditForm extends Component {
           values.req_headers = values.req_headers || [];
           values.req_body_form = values.req_body_form || [];
           let isfile = false,
-            isHavaContentType = false;
+            isHaveContentType = false;
           if (values.req_body_type === 'form') {
             values.req_body_form.forEach(item => {
               if (item.type === 'file') {
@@ -277,10 +277,10 @@ class InterfaceEditForm extends Component {
             values.req_headers.map(item => {
               if (item.name === 'Content-Type') {
                 item.value = isfile ? 'multipart/form-data' : 'application/x-www-form-urlencoded';
-                isHavaContentType = true;
+                isHaveContentType = true;
               }
             });
-            if (isHavaContentType === false) {
+            if (isHaveContentType === false) {
               values.req_headers.unshift({
                 name: 'Content-Type',
                 value: isfile ? 'multipart/form-data' : 'application/x-www-form-urlencoded'
@@ -291,11 +291,11 @@ class InterfaceEditForm extends Component {
               ? values.req_headers.map(item => {
                   if (item.name === 'Content-Type') {
                     item.value = 'application/json';
-                    isHavaContentType = true;
+                    isHaveContentType = true;
                   }
                 })
               : [];
-            if (isHavaContentType === false) {
+            if (isHaveContentType === false) {
               values.req_headers = values.req_headers || [];
               values.req_headers.unshift({
                 name: 'Content-Type',
@@ -1211,7 +1211,7 @@ class InterfaceEditForm extends Component {
                         <span
                           className="href"
                           onClick={() =>
-                            window.open('https://yapi.ymfe.org/documents/mock.html', '_blank')
+                            window.open('https://hellosean1025.github.io/yapi/documents/mock.html', '_blank')
                           }
                         >
                           查看文档
@@ -1291,8 +1291,8 @@ class InterfaceEditForm extends Component {
               {...formItemLayout}
               label={
                 <span>
-                  邮件通知&nbsp;
-                  <Tooltip title={'开启邮件通知，可在 项目设置 里修改'}>
+                  消息通知&nbsp;
+                  <Tooltip title={'开启消息通知，可在 项目设置 里修改'}>
                     <Icon type="question-circle-o" style={{ width: '10px' }} />
                   </Tooltip>
                 </span>
